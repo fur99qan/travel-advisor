@@ -6,9 +6,12 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
-const PlaceDetails = ({ place }) => {
+const PlaceDetails = ({ place, selected, refProp }) => {
 
     const classes = useStyles();
+
+    if (selected) refProp?.current?.scrollIntoView({ behaviour: 'smooth', block: 'start' });
+
 
     console.log(place);
     return (
@@ -28,6 +31,11 @@ const PlaceDetails = ({ place }) => {
                     <Typography variant='subtitle1'>Price</Typography>
                     <Typography gutterBottom variant='subtitle1'>{place.price_level}</Typography>
                 </Box>
+                <Box display='flex' justifyContent='space-between'>
+                    <Rating size="large" value={Number(place.rating)} readOnly />
+                    <Typography gutterBottom variant='subtitle1'>out of {place.num_reviews}</Typography>
+                </Box>
+
                 <Box display='flex' justifyContent='space-between'>
                     <Typography variant='subtitle1'>Ranking</Typography>
                     <Typography gutterBottom variant='subtitle1'>{place.ranking}</Typography>
