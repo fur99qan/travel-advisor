@@ -3,22 +3,7 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from './styles';
 
-const places = [
-    { name: 'abc' },
-    { name: 'def' },
-    { name: 'ghi' },
-    { name: 'jkl' },
-    { name: 'abc' },
-    { name: 'def' },
-    { name: 'ghi' },
-    { name: 'jkl' },
-    { name: 'abc' },
-    { name: 'def' },
-    { name: 'ghi' },
-    { name: 'jkl' },
-]
-
-const List = () => {
+const List = ({ places }) => {
     const classes = useStyles();
     const [type, setType] = useState('resturants');
     const [rating, setRating] = useState(0);
@@ -53,6 +38,7 @@ const List = () => {
                         </Grid>
                     ))
                 }
+
             </Grid>
         </div>
 
