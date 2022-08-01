@@ -17,7 +17,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
                 bootstrapURLKeys={{ key: "AIzaSyA-yPzOxS1b4LIKQNRJQnsBBVQqFflXLfE" }}
                 defaultCenter={coordinates}
                 center={coordinates}
-                defaultZoom={14}
+                defaultZoom={16}
                 margin={[50, 50, 50, 50]}
                 options={''}
                 onChange={(e) => {
@@ -27,12 +27,12 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
                 onChildClick={(child) => setChildClicked(child)}
             >
                 {
-                    places?.map((place, index) => (
+                    places?.map((place, i) => (
                         <div
                             className={classes.markerContainer}
                             lat={Number(place.latitude)}
                             lng={Number(place.longitude)}
-                            key={index}>
+                            key={i}>
                             {
                                 !isDesktop ?
                                     (
